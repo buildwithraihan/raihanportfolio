@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raihan Harismanzil - Portfolio</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        p, li {
+            color: #e0e0e0;
+        }
+        a {
+            color: #00f3ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #007bff;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #101010 100%);
+            border-bottom: 2px solid #007bff;
+        }
+        header h1 {
+            color: #00f3ff;
+            text-shadow: 0 0 10px #00f3ff;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            color: #ffffff;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #101010;
+            padding: 1rem;
+            z-index: 100;
+            border-bottom: 1px solid #007bff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: #e0e0e0;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00f3ff;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .sidebar {
+            flex: 0 0 30%;
+            padding-right: 2rem;
+            position: sticky;
+            top: 100px; /* Adjust based on nav height */
+            height: fit-content;
+        }
+        .main-content {
+            flex: 1;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+        .section-icon {
+            margin-right: 0.5rem;
+            color: #00f3ff;
+        }
+
+        /* Contact */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .contact-item i {
+            margin-right: 0.5rem;
+            color: #007bff;
+        }
+
+        /* Education */
+        .education-card {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .skill-tag:hover {
+            background-color: #00f3ff;
+            transform: translateY(-2px);
+        }
+        .soft-skill-tag {
+            background-color: #0066cc;
+        }
+        .soft-skill-tag:hover {
+            background-color: #00f3ff;
+        }
+
+        /* Projects */
+        .project-card {
+            background-color: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #007bff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+        }
+        .project-tech {
+            margin-top: 0.5rem;
+        }
+        .tech-tag {
+            background-color: #00f3ff;
+            color: #0a0a0a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
+        .experience-item h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .experience-item ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        .experience-item li {
+            margin-bottom: 0.5rem;
+        }
+        .experience-item li::before {
+            content: "•";
+            color: #00f3ff;
+            margin-right: 0.5rem;
+        }
+
+        /* Achievements */
+        .achievements ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        .achievements li {
+            margin-bottom: 0.5rem;
+        }
+        .achievements li::before {
+            content: "🏆";
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #101010;
+            border-top: 1px solid #007bff;
+            color: #e0e0e0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: static;
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <h1>RAIHAN HARISMNAZIL</h1>
+        <p>Full Stack Developer | AI Developer | Product Builder</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#objective">Objective</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <!-- Contact -->
+            <section id="contact">
+                <h2><i class="fas fa-address-book section-icon"></i>Contact</h2>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kerala, India</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8208053776</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>raihanharismanzil@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/raihan-harismanzil-8724832ab" target="_blank">linkedin.com/in/raihan-harismanzil-8724832ab</a>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education">
+                <h2><i class="fas fa-graduation-cap section-icon"></i>Education</h2>
+                <div class="education-card">
+                    <h3>Bachelor of Computer Applications (AI Specialization)</h3>
+                    <p><strong>Jain University, Kochi</strong></p>
+                    <p>2025 – 2029 (Pursuing)</p>
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section id="technical-skills">
+                <h2><i class="fas fa-code section-icon"></i>Technical Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">AWS Basics</span>
+                </div>
+            </section>
+
+            <!-- Soft Skills -->
+            <section id="soft-skills">
+                <h2><i class="fas fa-puzzle-piece section-icon"></i>Soft Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-tag soft-skill-tag">Team Collaboration</span>
+                    <span class="skill-tag soft-skill-tag">Problem Solving</span>
+                    <span class="skill-tag soft-skill-tag">Communication</span>
+                    <span class="skill-tag soft-skill-tag">Time Management</span>
+                    <span class="skill-tag soft-skill-tag">Leadership</span>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Right Main Content -->
+        <main class="main-content">
+            <!-- Career Objective -->
+            <section id="objective">
+                <h2><i class="fas fa-bullseye section-icon"></i>Career Objective</h2>
+                <p>Innovative and driven BCA (AI Specialization) student at Jain University, Kochi with hands-on experience in full-stack and AI-integrated projects. Passionate about creating impactful digital solutions that blend technology, design, and intelligence. Seeking opportunities to grow as an AI Product Developer and contribute to meaningful innovation.</p>
+            </section>
+
+            <!-- Projects -->
+            <section id="projects">
+                <h2><i class="fas fa-brain section-icon"></i>Projects</h2>
+                <div class="project-card">
+                    <h3>Growbie – Smart Curriculum & Attendance App</h3>
+                    <p>A mobile app for managing educational curricula and attendance with smart features.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Diva – Speech-to-Text & Hand Sign Translator</h3>
+                    <p>An AI-powered tool for translating speech and hand signs into text.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">OpenCV</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>ArtisanHub – AI Marketplace for Artisans</h3>
+                    <p>A platform connecting artisans with customers using AI recommendations.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>CareerPathAI – ML Career Prediction Tool</h3>
+                    <p>A machine learning tool to predict career paths based on user inputs.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Personalized Portfolio – Dynamic Full-Stack Portfolio</h3>
+                    <p>A dynamic portfolio website showcasing skills and projects.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience">
+                <h2><i class="fas fa-briefcase section-icon"></i>Experience</h2>
+                <div class="experience-item">
+                    <h4>Intern – Web Developer, SBCest</h4>
+                    <ul>
+                        <li>Designed and developed responsive web apps with Node.js and React.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>Intern – Web Developer, Ideator Events</h4>
+                    <ul>
+                        <li>Built Event Management Website for Ideator Events.</li>
+                        <li>Collaborated with the team to collect and manage event data.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Achievements & Activities -->
+            <section id="achievements">
+                <h2><i class="fas fa-trophy section-icon"></i>Achievements & Activities</h2>
+                <ul class="achievements">
+                    <li>Exhibited AI-based projects at Kerala Machinery Expo 2025.</li>
+                    <li>Participated in university hackathons and developer events.</li>
+                    <li>Freelanced as Web/App Developer for multiple clients.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Raihan Harismanzil. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
